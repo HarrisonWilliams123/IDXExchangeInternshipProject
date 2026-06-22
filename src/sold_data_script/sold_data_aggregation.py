@@ -21,6 +21,9 @@ for filename in all_sold_files:
 #Concatenates all data frames to create final sold data frame
 combined_sold_df = pd.concat(sold_df_list, ignore_index=True)
 
+#Removes the last two columns in the data frame (extra columns)
+combined_sold_df = combined_sold_df.drop(columns=['latfilled', 'lonfilled'])
+
 #Prints the amount of rows after
 print(round(sum(total_entries) / len(total_entries), 0))
 print(len(combined_sold_df))
