@@ -74,7 +74,7 @@ for col in numeric_fields:
 
 print(outlier_report)
 
-sold_data.to_csv("sold_residential_filtered.csv", index=False)
+sold_data.to_csv("filtered_datasets/sold_residential_filtered.csv", index=False)
 
 
     
