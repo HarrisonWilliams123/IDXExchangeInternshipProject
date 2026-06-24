@@ -21,6 +21,9 @@ for filename in all_listing_files:
 #Concatenates all data frames to create final listing data frame
 combined_listing_df = pd.concat(listing_df_list, ignore_index=True)
 
+#Saves the unfiltered data frame to use for EDA
+#combined_listing_df.to_csv("data/unfiltered_listing_df.csv", index=False)
+
 #Prints the amount of rows after
 print(round(sum(total_entries) / len(total_entries), 0))
 print(len(combined_listing_df))
