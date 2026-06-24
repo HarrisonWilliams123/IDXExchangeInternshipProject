@@ -48,7 +48,7 @@ for col in numeric_fields:
     plt.xlabel(col)
     plt.ylabel("Frequency")
     plt.tight_layout()
-    plt.savefig(f"notebooks/graphs/hist_{col}.png", dpi=300)
+    plt.savefig(f"notebooks/graphs/numeric_plots/hist_{col}.png", dpi=300)
     plt.close()
 
     #Creates the box plots
@@ -56,7 +56,7 @@ for col in numeric_fields:
     sns.boxplot(x=sold_data[col], color='orange')
     plt.title(f"Boxplot of {col}")
     plt.tight_layout()
-    plt.savefig(f"box_{col}.png", dpi=300)
+    plt.savefig(f"notebooks/graphs/numeric_plots/box_{col}.png", dpi=300)
     plt.close()
 
 #Identifies extreme outliers using the IQR method
