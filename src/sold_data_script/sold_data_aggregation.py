@@ -30,7 +30,7 @@ combined_sold_df = pd.concat(sold_df_list, ignore_index=True)
 combined_sold_df = combined_sold_df.drop(columns=['latfilled', 'lonfilled'])
 
 #Saves the unfiltered data frame to use for EDA
-#combined_sold_df.to_csv("data/unfiltered_sold_df.csv", index=False)
+combined_sold_df.to_csv("data/unfiltered_sold_df.csv", index=False)
 
 #Prints the amount of rows after
 print(round(sum(total_entries) / len(total_entries), 0))

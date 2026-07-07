@@ -50,7 +50,7 @@ plt.xticks(rotation=45)
 plt.bar_label(bars, padding=3, fontweight='bold')
 
 plt.tight_layout()
-plt.savefig("notebooks/graphs/sold_property_types_comparison.png", dpi=300)
+plt.savefig("reports/sold_property_types_comparison.png", dpi=300)
 
 
 #Second Bar Chart
@@ -67,4 +67,4 @@ plt.ylabel('Quantity')
 plt.bar_label(bars2, padding=3, fontweight='bold')
 
 plt.tight_layout()
-plt.savefig("notebooks/graphs/sold_residential_vs_other.png", dpi=300)
+plt.savefig("reports/sold_residential_vs_other.png", dpi=300)
