@@ -71,7 +71,7 @@ print(summary)
 #Prints Histograms and Boxplots for each numeric field
 for col in numeric_fields:
     #Creates the histograms
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(10, 5), layout="constrained")
     plt.hist(sold_data[col].dropna(), bins=40, color='skyblue', edgecolor='black')
     plt.title(f"Histogram of {col}")
     plt.xlabel(col)
