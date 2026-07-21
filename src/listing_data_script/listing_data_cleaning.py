@@ -5,6 +5,10 @@ import numpy as np
 list = pd.read_csv("combined_datasets/sold_with_rates.csv")
 original_len = len(list)
 
+#Removes the rows with >90% Missing Values
+threshold = int(list.shape[1] * 0.10)
+list = list[list.count(axis=1) >= threshold]
+
 #Changes the date fields (CloseDate, PurchaseContractDate, ListingContractDate, ContractStatusChangeDate) to datetime format
 list['CloseDate'] = pd.to_datetime(list['CloseDate'])
 list['PurchaseContractDate'] = pd.to_datetime(list['PurchaseContractDate'])
@@ -55,17 +59,32 @@ list['negative_timeline_flag'] = list['PurchaseContractDate'] < list['ListingCon
 #Geographic data checks
 list['missing_coords_flag'] = list['Latitude'].isna() | list['Longitude'].isna()
 list['zero_coords_flag'] = (list['Latitude'] == 0) | (list['Longitude'] == 0)
-list['invalid_longitude_flag'] = list['Latitude'] > 0
+list['invalid_longitude_flag'] = list['Longitude'] > 0
 list['implausible_coords_flag'] = ~(
     list['Latitude'].between(32,42) &
     list['Longitude'].between(-124, -114)
 )
 
-#Before/after row counts
-print("Before cleaning:", original_len)
-print("After cleaning:", len(list))
+#Summary Reports
+print("Row Counts:")
+print("Original Rows:", original_len)
+print("Final rows after full cleaning:", len(list))
+print()
 
-#Print statement to confirm data types
+print("Data Types:")
 print(list.dtypes)
+print()
+
+print("Date Consistency Flag Counts:")
+print("Listing after close:", list['listing_after_close_flag'].sum())
+print("Purchase after close:", list['purchase_after_close_flag'].sum())
+print("Negative timeline:", list['negative_timeline_flag'].sum())
+print()
+
+print("Geographic Data Quality Summary:")
+print("Missing coordinates:", list['missing_coords_flag'].sum())
+print("Zero coordinates:", list['zero_coords_flag'].sum())
+print("Invalid longitude (>0):", list['invalid_longitude_flag'].sum())
+print("Implausible coordinates:", list['missing_coords_flag'].sum())
 
 list.to_csv("filtered_datasets/list_cleaned.csv", index=False)
