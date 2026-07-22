@@ -11,10 +11,10 @@ sold = sold[sold.count(axis=1) >= threshold]
 
 
 #Changes the date fields (CloseDate, PurchaseContractDate, ListingContractDate, ContractStatusChangeDate) to datetime format
-sold['CloseDate'] = pd.to_datetime(sold['CloseDate'])
-sold['PurchaseContractDate'] = pd.to_datetime(sold['PurchaseContractDate'])
-sold['ListingContractDate'] = pd.to_datetime(sold['ListingContractDate'])
-sold['ContractStatusChangeDate'] = pd.to_datetime(sold['ContractStatusChangeDate'])
+sold['CloseDate'] = pd.to_datetime(sold['CloseDate'], errors='coerce')
+sold['PurchaseContractDate'] = pd.to_datetime(sold['PurchaseContractDate'], errors='coerce')
+sold['ListingContractDate'] = pd.to_datetime(sold['ListingContractDate'], errors='coerce')
+sold['ContractStatusChangeDate'] = pd.to_datetime(sold['ContractStatusChangeDate'], errors='coerce')
 
 numeric_cols = [
     'OriginalListPrice', 'ClosePrice', 'LivingArea', 'ListPrice',
