@@ -16,8 +16,8 @@ list = pd.read_csv("filtered_datasets/feature_engineering_list_data.csv")
 sold = pd.read_csv("filtered_datasets/feature_engineering_sold_data.csv")
 
 #Create Geometry Columns
-geometry_list = [Point(xy) for xy in zip(list["Longitude", list["Latitude"]])]
-geometry_sold = [Point(xy) for xy in zip(sold["Longitude", sold["Latitude"]])]
+geometry_list = [Point(xy) for xy in zip(list["Longitude"], list["Latitude"])]
+geometry_sold = [Point(xy) for xy in zip(sold["Longitude"], sold["Latitude"])]
 
 properties_list = gpd.GeoDataFrame(list, geometry=geometry_list, crs="EPSG:4326")
 properties_sold = gpd.GeoDataFrame(sold, geometry=geometry_sold, crs="EPSG:4326")
