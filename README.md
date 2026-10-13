@@ -1,4 +1,3 @@
-# IDXExchangeInternshipProject
 # IDX Exchange Data Analyst Internship Project
 
 I built this pipeline during my data analyst internship at IDX Exchange. It works with California MLS (CRMLS) data from January 2024 to June 2026. That comes to 30 monthly files each for listings and closed sales, about 1.6 million rows in total. The scripts combine the monthly files, clean them, add mortgage rate and school district data, and produce a final dataset ready for analysis.
@@ -27,9 +26,9 @@ Most closed sales are residential, which is why I focused the project on residen
 
 ![Sold property types](reports/sold_property_types_comparison.png)
 
-Close prices are very right-skewed, with a long tail of expensive homes. This is the reason for the outlier step at the end:
+Most homes that sold were built between the 1950s and 2000s, with a smaller group of newer construction from the last few years:
 
-![Close price histogram](reports/numeric_plots/sold_hist_ClosePrice.png)
+![Year built histogram](reports/numeric_plots/sold_hist_YearBuilt.png)
 
 The rest of the histograms and box plots are in `reports/numeric_plots/`.
 
@@ -84,7 +83,7 @@ Python, pandas, NumPy, GeoPandas, Shapely, Matplotlib, seaborn, Jupyter
 
 - Fill missing values by county instead of using one median for the whole state.
 - Include elementary and high school districts, not only unified ones.
-- Build a dashboard and look at how prices and days on market change as mortgage rates move.
+- Look more closely at how prices and days on market change as mortgage rates move.
 
 ## Data sources
 
