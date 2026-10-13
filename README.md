@@ -3,6 +3,7 @@
 I built this pipeline during my data analyst internship at IDX Exchange. It works with California MLS (CRMLS) data from January 2024 to June 2026. That comes to 30 monthly files each for listings and closed sales, about 1.6 million rows in total. The scripts combine the monthly files, clean them, add mortgage rate and school district data, and produce a final dataset ready for analysis.
 
 Tableau Dashboards: https://public.tableau.com/app/profile/harrisonwwilliams/vizzes
+
 Market Intelligence Report: https://1drv.ms/w/c/a88d152ab49a4ee2/IQCU7SSb9BxYSr1wvKUd9G4gAfEOFF9bR1jstZv8OcBiF0s?e=9qGtwU
 
 ## What it does
